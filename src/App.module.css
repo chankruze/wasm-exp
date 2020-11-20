@@ -143,6 +143,7 @@
   transition: all 200ms ease-in-out;
   align-self: flex-end;
   margin-top: 0.5rem;
+  text-decoration: none;
 }
 
 .btn_download:hover {

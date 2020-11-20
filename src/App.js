@@ -134,7 +134,14 @@ function App() {
               {gif && (
                 <div className={styles.result_wrapper}>
                   <img src={gif} className={styles.gif} alt="converted gif" />
-                  <button className={styles.btn_download}>download</button>
+                  <a
+                    href={gif}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.btn_download}
+                  >
+                    download
+                  </a>
                 </div>
               )}
             </div>
