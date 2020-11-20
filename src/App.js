@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 // eslint-disable-next-line
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 import { useInputFloat } from "./hooks/useGeekofia";
+
 import styles from "./App.module.css";
+import { LogsContainer } from "./components/LogsContainer";
 
 const ffmpeg = createFFmpeg({ log: true });
 
@@ -12,6 +14,7 @@ function App() {
   const [ready, setReady] = useState(false);
   const [video, setVideo] = useState();
   const [gif, setGif] = useState();
+  const [skipSeconds, bindSkipSeconds] = useInputFloat(0);
   const [duraton, bindDuration] = useInputFloat(5);
   const [fps, bindFps] = useInputFloat(10);
   const [width, bindWidth] = useInputFloat(0);
@@ -47,6 +50,8 @@ function App() {
 
     // run the ffmpeg command
     await ffmpeg.run(
+      "-ss",
+      `${skipSeconds}`,
       "-t",
       `${duraton}`,
       "-i",
@@ -88,6 +93,11 @@ function App() {
             <div className={styles.settings_wrapper}>
               {/* duration */}
               <div>
+                <p>Skip (from 0)</p>
+                <input type="number" {...bindSkipSeconds} />
+              </div>
+              {/* duration */}
+              <div>
                 <p>Duration</p>
                 <input type="number" {...bindDuration} />
               </div>
@@ -113,26 +123,24 @@ function App() {
               convert
             </button>
           </div>
-          <>
-            <div className={styles.body}>
+          <div className={styles.body}>
+            <div className={styles.left}>
               {/* uploaded video */}
               {video && (
-                <video
-                  controls
-                  className={styles.input_video}
-                  src={URL.createObjectURL(video)} // assign a file to an URLs
-                ></video>
-              )}
-
-              {gif && (
-                <div className={styles.separater}>
-                  {">>"} Booyah! {">>"}
+                <div className={styles.input_wrapper}>
+                  <h3>Video</h3>
+                  <video
+                    controls
+                    className={styles.input_video}
+                    src={URL.createObjectURL(video)} // assign a file to an URLs
+                  ></video>
                 </div>
               )}
-
+              
               {/* render the gif */}
               {gif && (
                 <div className={styles.result_wrapper}>
+                  <h3>GIF</h3>
                   <img src={gif} className={styles.gif} alt="converted gif" />
                   <a
                     href={gif}
@@ -145,7 +153,10 @@ function App() {
                 </div>
               )}
             </div>
-          </>
+            <div className={styles.right}>
+              <LogsContainer />
+            </div>
+          </div>
         </>
       ) : (
         <p className={styles.loading}>Loading ffmpeg...</p>

@@ -1,9 +1,12 @@
 .app_root {
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  background: rgb(22, 22, 22);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .loading {
@@ -16,12 +19,12 @@
 .toolbar {
   min-height: 4rem;
   padding: 0.5rem 1rem;
-  background: rgb(243, 243, 243);
+  background: rgb(41, 41, 41);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  /* color: #fff; */
+  color: #fff;
 }
 
 .file_upload_wrapper {
@@ -109,29 +112,50 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
+  /* justify-content: space-between; */
+  /* width: 100%; */
+  overflow: hidden;
+}
+
+.body > * {
+  flex: 1;
+  height: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+}
+
+.right {
+  overflow-y: auto;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
 }
 
 .input_video {
-  min-width: 22.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   max-width: 480px;
   border-radius: 0.5rem;
-}
-
-.separater {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  font-size: 1.5rem;
 }
 
 .result_wrapper {
   display: flex;
   flex-direction: column;
+  color: #fff;
 }
 
 .gif {
-  min-width: 22.5rem;
+  margin-top: 0.5rem;
   max-width: 480px;
   border-radius: 0.5rem;
 }
@@ -159,6 +183,7 @@
   .app_root {
     padding-top: 2rem;
     padding-bottom: 2rem;
+    height: auto;
   }
 
   .toolbar {
@@ -174,7 +199,7 @@
     flex-direction: column;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 50%;
+    width: 90%;
   }
 
   .settings_wrapper div {
@@ -184,18 +209,28 @@
     /* background: coral; */
   }
 
-  .settings_wrapper div > * {
+  .settings_wrapper div p {
     flex: 1;
   }
 
   .body {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
-  .separater {
+  .input_wrapper,
+  .result_wrapper {
+    padding: 0.5rem 1rem;
+  }
+
+  .right {
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    max-height: 300px;
   }
 
   .btn_download {
@@ -204,11 +239,10 @@
 
   .input_video,
   .gif {
-    width: 100%;
+    max-width: 100%;
   }
 
   .loading {
     font-size: 1.2rem;
-    color: tomato;
   }
 }
