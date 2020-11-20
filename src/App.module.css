@@ -1,0 +1,150 @@
+.app_root {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  color: blue;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.toolbar {
+  min-height: 4rem;
+  padding: 0.5rem 1rem;
+  background: rgb(243, 243, 243);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* color: #fff; */
+}
+
+.file_upload_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.file_input_wrapper {
+  /* font-size: 1rem; */
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+  background: crimson;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.file_input_wrapper span {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.file_input_wrapper input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.settings_wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.settings_wrapper div {
+  display: flex;
+  align-items: center;
+}
+
+.settings_wrapper div p {
+  margin-right: 0.5rem;
+}
+
+.settings_wrapper div input {
+  border: 0;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  padding: 0.25rem;
+  width: 3rem;
+  font-size: 1.1rem;
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  background: rgb(255, 210, 152);
+}
+
+.btn_convert {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  text-transform: lowercase;
+  background: green;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  margin-left: auto;
+}
+
+.btn_convert:hover {
+  background: #006b00;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.input_video {
+  min-width: 22.5rem;
+  max-width: 480px;
+  border-radius: 0.5rem;
+}
+
+.separater {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.result_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.gif {
+  min-width: 22.5rem;
+  max-width: 480px;
+  border-radius: 0.5rem;
+}
+
+.btn_download {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  text-transform: lowercase;
+  background: green;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  align-self: flex-end;
+  margin-top: 0.5rem;
+}
+
+.btn_download:hover {
+  background: #006b00;
+}
